@@ -96,7 +96,7 @@ resource "aws_lb_listener_rule" "frontend" {
 
   condition {
     host_header {
-      values = ["roboshop-${var.environment}.${var.zone_name}"] #roboshop-dev.daws81s.online
+      values = ["roboshop-${var.environment}.${var.zone_name}"] #roboshop-dev.ramops.online
     }
   }
 }
