@@ -23,7 +23,7 @@ mysql -h roboshop-dev.czn6yzxlcsiv.us-east-1.rds.amazonaws.com -u root -pRoboSho
 ```
 * Clone shipping component into bastion
 ```
-git clone https://github.com/daws-81s/shipping.git
+git clone https://github.com/iam-vanimina/shipping.git
 ```
 * Load the data into mysql
 ```
@@ -78,7 +78,7 @@ aws iam create-policy \
 * Create Service account. Replace your account ID.
 ```
 eksctl create iamserviceaccount \
---cluster=expense-dev \
+--cluster=roboshop-dev \
 --namespace=kube-system \
 --name=aws-load-balancer-controller \
 --attach-policy-arn=arn:aws:iam::315069654700:policy/AWSLoadBalancerControllerIAMPolicy \
@@ -94,7 +94,7 @@ helm repo add eks https://aws.github.io/eks-charts
 ```
 
 ```
-helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=expense-dev --set serviceAccount.create=true --set serviceAccount.name=aws-load-balancer-controller
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=roboshop-dev --set serviceAccount.create=true --set serviceAccount.name=aws-load-balancer-controller
 ```
 
 * Make sure load balancer pods are running
